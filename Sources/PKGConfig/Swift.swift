@@ -26,6 +26,11 @@ extension PKGConfig {
     public struct Swift: Codable {
         public let version: String
         public let buildOptions: [SwiftBuildOption]
+        
+        public init(version: String, buildOptions: [SwiftBuildOption]) {
+            self.version = version
+            self.buildOptions = buildOptions
+        }
     }
 }
 
@@ -57,3 +62,4 @@ extension PKGConfig.SwiftBuildOption: Codable {
         }
     }
 }
+

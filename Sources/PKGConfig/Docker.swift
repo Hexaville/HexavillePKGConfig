@@ -20,6 +20,10 @@ extension PKGConfig {
     
     public struct Docker: Codable {
         public let buildOptions: [DockerBuildOption]
+        
+        public init(buildOptions: [DockerBuildOption]) {
+            self.buildOptions = buildOptions
+        }
     }
 }
 
@@ -47,3 +51,4 @@ extension PKGConfig.DockerBuildOption: Codable {
         }
     }
 }
+

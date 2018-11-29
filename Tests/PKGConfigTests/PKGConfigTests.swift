@@ -40,7 +40,7 @@ final class PKGConfigTests: XCTestCase {
         let jsonString = try! testFullPKGConfig.encodeToJSONUTF8String()
 
 let exepected = """
-{"cloudService":{"aws":{"region":"us-east-1","lambda":{"s3Bucket":"myBucket","vpc":{"securityGroupIds":["xxxxxxxxxxxxxxxxxx"],"subnetIds":["xxxxxxxxxxxxxxxxxx"]},"timeout":29,"role":"xxxxxxxxxxxxxxxxxxxxxxxxxx"},"credential":{"accessKeyId":"accessKeyId","secretAccessKey":"secretAccessKey"}}},"docker":{"buildOptions":[{"nocache":false}]},"swift":{"version":"4.0.0","buildOptions":[{"configuration":"debug"}]}}
+{"cloudService":{"aws":{"region":"us-east-1","lambda":{"s3Bucket":"myBucket","vpc":{"securityGroupIds":["xxxxxxxxxxxxxxxxxx"],"subnetIds":["xxxxxxxxxxxxxxxxxx"]},"timeout":29,"role":"xxxxxxxxxxxxxxxxxxxxxxxxxx"},"credential":{"accessKeyId":"accessKeyId","secretAccessKey":"secretAccessKey"}}},"docker":{"buildOptions":[{"nocache":false}]},"swift":{"version":"4.2","buildOptions":[{"configuration":"debug"}]}}
 """
         XCTAssertEqual(jsonString, exepected)
     }
