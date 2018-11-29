@@ -23,17 +23,20 @@ extension PKGConfig {
             public struct Lambda: Codable {
                 public let s3Bucket: String
                 public let role: String?
-                public let timeout: UInt
+                public let memory: Int32
+                public let timeout: Int32
                 public let vpc: VPC?
                 
                 public init(
                     s3Bucket: String,
                     role: String? = nil,
-                    timeout: UInt = 10,
+                    timeout: Int32 = 10,
+                    memory: Int32 = 256,
                     vpc: VPC? = nil) {
                     self.s3Bucket = s3Bucket
                     self.role = role
                     self.timeout = timeout
+                    self.memory = memory
                     self.vpc = vpc
                 }
             }
@@ -100,3 +103,4 @@ extension PKGConfig {
         )
     }
 }
+
