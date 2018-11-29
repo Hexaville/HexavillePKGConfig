@@ -21,6 +21,8 @@ final class PKGConfigTests: XCTestCase {
     
     var testFullPKGConfig: PKGConfig {
         return PKGConfig(
+            appName: "test",
+            executableTarget: "test",
             cloudService: .aws(testAWSConfig),
             docker: PKGConfig.Docker(
                 buildOptions: [
@@ -40,7 +42,7 @@ final class PKGConfigTests: XCTestCase {
         let jsonString = try! testFullPKGConfig.encodeToJSONUTF8String()
 
 let exepected = """
-{"cloudService":{"aws":{"region":"us-east-1","lambda":{"s3Bucket":"myBucket","vpc":{"securityGroupIds":["xxxxxxxxxxxxxxxxxx"],"subnetIds":["xxxxxxxxxxxxxxxxxx"]},"timeout":29,"role":"xxxxxxxxxxxxxxxxxxxxxxxxxx"},"credential":{"accessKeyId":"accessKeyId","secretAccessKey":"secretAccessKey"}}},"docker":{"buildOptions":[{"nocache":false}]},"swift":{"version":"4.2","buildOptions":[{"configuration":"debug"}]}}
+{"cloudService":{"aws":{"region":"us-east-1","lambda":{"s3Bucket":"myBucket","vpc":{"securityGroupIds":["xxxxxxxxxxxxxxxxxx"],"subnetIds":["xxxxxxxxxxxxxxxxxx"]},"memory":256,"role":"xxxxxxxxxxxxxxxxxxxxxxxxxx","timeout":29},"credential":{"accessKeyId":"accessKeyId","secretAccessKey":"secretAccessKey"}}},"appName":"test","executableTarget":"test","docker":{"buildOptions":[{"nocache":false}]},"swift":{"version":"4.2","buildOptions":[{"configuration":"debug"}]}}
 """
         XCTAssertEqual(jsonString, exepected)
     }
